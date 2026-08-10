@@ -1,0 +1,181 @@
+{
+  "version": "tapedeck@0.3.0",
+  "recordedAt": "2026-08-10T21:14:44.000Z",
+  "interactions": [
+    {
+      "hash": "sha256:3b804d1bcd3793f73784ff70954353e6238bedd687717120b399a8dab41d5997",
+      "request": {
+        "modelProvider": "anthropic.messages",
+        "modelId": "claude-haiku-4-5",
+        "prompt": [
+          {
+            "role": "system",
+            "content": "You are a terse order-support agent. Use the lookupOrder tool to fetch the order status, then answer the customer in one sentence."
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Where is my order A-1001?"
+              }
+            ]
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "name": "lookupOrder",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "orderId": {
+                  "type": "string",
+                  "description": "The order id, e.g. A-1001"
+                }
+              },
+              "required": [
+                "orderId"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Look up the current status of an order by its id."
+          }
+        ],
+        "temperature": 0
+      },
+      "response": {
+        "type": "generate",
+        "content": [
+          {
+            "type": "tool-call",
+            "toolCallId": "toolu_01demo0000000000000001",
+            "toolName": "lookupOrder",
+            "input": "{\"orderId\":\"A-1001\"}"
+          }
+        ],
+        "finishReason": {
+          "unified": "tool-calls",
+          "raw": "tool_use"
+        },
+        "usage": {
+          "inputTokens": {
+            "total": 214,
+            "noCache": 214,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "outputTokens": {
+            "total": 43,
+            "text": 43,
+            "reasoning": 0
+          }
+        },
+        "warnings": []
+      }
+    },
+    {
+      "hash": "sha256:3a17ff87227a5442769de9f9099d6ebfae0054183450ac1411fd3cb2a0bd6f05",
+      "request": {
+        "modelProvider": "anthropic.messages",
+        "modelId": "claude-haiku-4-5",
+        "prompt": [
+          {
+            "role": "system",
+            "content": "You are a terse order-support agent. Use the lookupOrder tool to fetch the order status, then answer the customer in one sentence."
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Where is my order A-1001?"
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool-call",
+                "toolCallId": "toolu_01demo0000000000000001",
+                "toolName": "lookupOrder",
+                "input": {
+                  "orderId": "A-1001"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "content": [
+              {
+                "type": "tool-result",
+                "toolCallId": "toolu_01demo0000000000000001",
+                "toolName": "lookupOrder",
+                "output": {
+                  "type": "json",
+                  "value": {
+                    "status": "shipped",
+                    "carrier": "DHL",
+                    "eta": "2026-08-14"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "name": "lookupOrder",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "orderId": {
+                  "type": "string",
+                  "description": "The order id, e.g. A-1001"
+                }
+              },
+              "required": [
+                "orderId"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Look up the current status of an order by its id."
+          }
+        ],
+        "temperature": 0
+      },
+      "response": {
+        "type": "generate",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your order A-1001 has shipped with DHL and is expected to arrive on 2026-08-14."
+          }
+        ],
+        "finishReason": {
+          "unified": "stop",
+          "raw": "end_turn"
+        },
+        "usage": {
+          "inputTokens": {
+            "total": 281,
+            "noCache": 281,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "outputTokens": {
+            "total": 27,
+            "text": 27,
+            "reasoning": 0
+          }
+        },
+        "warnings": []
+      }
+    }
+  ]
+}
