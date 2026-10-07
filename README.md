@@ -41,7 +41,9 @@ The cassette key is a hash of `{ modelProvider, modelId, prompt, toolSchemas, ma
 
 ## Honesty note
 
-The committed cassettes were recorded against a scripted model (`MockLanguageModelV4` impersonating `anthropic.messages / claude-haiku-4-5`) so this repo works out of the box with no API key; `ANTHROPIC_API_KEY=... npm run record:real` re-records the exact same flow against the live model and produces a drop-in replacement cassette, with the test passing unchanged. tapedeck records whatever flows through the middleware, so the cassette mechanics (hashing, replay, drift detection) are identical either way.
+The committed cassette was recorded against the live model (`anthropic.messages / claude-haiku-4-5`) on 2026-10-07 with `npm run record:real`. `npm run record` regenerates it against a scripted model (`MockLanguageModelV4` impersonating the same identity) so the flow can be re-recorded with no API key. tapedeck records whatever flows through the middleware, so the cassette mechanics (hashing, replay, drift detection) are identical either way.
+
+One lesson from the first live re-record: the test asserted that the final text contained `2026-08-14`, which was the scripted model's wording. Haiku wrote "August 14, 2026" and the test went red against a correct answer. The ETA is now asserted on the deterministic tool result, and the prose check accepts either date form.
 
 ## Scripts
 
