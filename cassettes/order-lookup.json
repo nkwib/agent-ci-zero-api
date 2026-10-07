@@ -1,6 +1,6 @@
 {
   "version": "tapedeck@0.3.0",
-  "recordedAt": "2026-08-10T21:14:44.000Z",
+  "recordedAt": "2026-10-07T17:51:26.505Z",
   "interactions": [
     {
       "hash": "sha256:3b804d1bcd3793f73784ff70954353e6238bedd687717120b399a8dab41d5997",
@@ -50,9 +50,16 @@
         "content": [
           {
             "type": "tool-call",
-            "toolCallId": "toolu_01demo0000000000000001",
+            "toolCallId": "toolu_01DYvRcfkbsSNfugS9kk1Gfj",
             "toolName": "lookupOrder",
-            "input": "{\"orderId\":\"A-1001\"}"
+            "input": "{\"orderId\":\"A-1001\"}",
+            "providerMetadata": {
+              "anthropic": {
+                "caller": {
+                  "type": "direct"
+                }
+              }
+            }
           }
         ],
         "finishReason": {
@@ -61,22 +68,92 @@
         },
         "usage": {
           "inputTokens": {
-            "total": 214,
-            "noCache": 214,
+            "total": 648,
+            "noCache": 648,
             "cacheRead": 0,
             "cacheWrite": 0
           },
           "outputTokens": {
-            "total": 43,
-            "text": 43,
-            "reasoning": 0
+            "total": 58
+          },
+          "raw": {
+            "input_tokens": 648,
+            "output_tokens": 58,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "service_tier": "standard",
+            "inference_geo": "not_available"
           }
         },
-        "warnings": []
+        "providerMetadata": {
+          "anthropic": {
+            "usage": {
+              "input_tokens": 648,
+              "output_tokens": 58,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            "stopSequence": null,
+            "iterations": null,
+            "container": null,
+            "contextManagement": null
+          }
+        },
+        "warnings": [],
+        "metadata": {
+          "id": "msg_011CfoJSMAfmcBSLpJ4ufgoo",
+          "modelId": "claude-haiku-4-5-20251001",
+          "body": {
+            "model": "claude-haiku-4-5-20251001",
+            "id": "msg_011CfoJSMAfmcBSLpJ4ufgoo",
+            "type": "message",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_01DYvRcfkbsSNfugS9kk1Gfj",
+                "name": "lookupOrder",
+                "input": {
+                  "orderId": "A-1001"
+                },
+                "caller": {
+                  "type": "direct"
+                }
+              }
+            ],
+            "container": null,
+            "stop_reason": "tool_use",
+            "stop_sequence": null,
+            "stop_details": null,
+            "usage": {
+              "input_tokens": 648,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "output_tokens": 58,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            "diagnostics": null
+          }
+        }
       }
     },
     {
-      "hash": "sha256:3a17ff87227a5442769de9f9099d6ebfae0054183450ac1411fd3cb2a0bd6f05",
+      "hash": "sha256:317037ffdb6bb3f4ccc87d9f6478b2957af51e60509033db3ec168c0196acbb3",
       "request": {
         "modelProvider": "anthropic.messages",
         "modelId": "claude-haiku-4-5",
@@ -99,10 +176,17 @@
             "content": [
               {
                 "type": "tool-call",
-                "toolCallId": "toolu_01demo0000000000000001",
+                "toolCallId": "toolu_01DYvRcfkbsSNfugS9kk1Gfj",
                 "toolName": "lookupOrder",
                 "input": {
                   "orderId": "A-1001"
+                },
+                "providerOptions": {
+                  "anthropic": {
+                    "caller": {
+                      "type": "direct"
+                    }
+                  }
                 }
               }
             ]
@@ -112,7 +196,7 @@
             "content": [
               {
                 "type": "tool-result",
-                "toolCallId": "toolu_01demo0000000000000001",
+                "toolCallId": "toolu_01DYvRcfkbsSNfugS9kk1Gfj",
                 "toolName": "lookupOrder",
                 "output": {
                   "type": "json",
@@ -120,6 +204,13 @@
                     "status": "shipped",
                     "carrier": "DHL",
                     "eta": "2026-08-14"
+                  }
+                },
+                "providerOptions": {
+                  "anthropic": {
+                    "caller": {
+                      "type": "direct"
+                    }
                   }
                 }
               }
@@ -154,7 +245,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Your order A-1001 has shipped with DHL and is expected to arrive on 2026-08-14."
+            "text": "Your order A-1001 has been shipped via DHL and is expected to arrive on August 14, 2026."
           }
         ],
         "finishReason": {
@@ -163,18 +254,81 @@
         },
         "usage": {
           "inputTokens": {
-            "total": 281,
-            "noCache": 281,
+            "total": 737,
+            "noCache": 737,
             "cacheRead": 0,
             "cacheWrite": 0
           },
           "outputTokens": {
-            "total": 27,
-            "text": 27,
-            "reasoning": 0
+            "total": 30
+          },
+          "raw": {
+            "input_tokens": 737,
+            "output_tokens": 30,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "service_tier": "standard",
+            "inference_geo": "not_available"
           }
         },
-        "warnings": []
+        "providerMetadata": {
+          "anthropic": {
+            "usage": {
+              "input_tokens": 737,
+              "output_tokens": 30,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            "stopSequence": null,
+            "iterations": null,
+            "container": null,
+            "contextManagement": null
+          }
+        },
+        "warnings": [],
+        "metadata": {
+          "id": "msg_011CfoJSR3qS3owFzoz8bxjL",
+          "modelId": "claude-haiku-4-5-20251001",
+          "body": {
+            "model": "claude-haiku-4-5-20251001",
+            "id": "msg_011CfoJSR3qS3owFzoz8bxjL",
+            "type": "message",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "Your order A-1001 has been shipped via DHL and is expected to arrive on August 14, 2026."
+              }
+            ],
+            "container": null,
+            "stop_reason": "end_turn",
+            "stop_sequence": null,
+            "stop_details": null,
+            "usage": {
+              "input_tokens": 737,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "cache_creation": {
+                "ephemeral_5m_input_tokens": 0,
+                "ephemeral_1h_input_tokens": 0
+              },
+              "output_tokens": 30,
+              "service_tier": "standard",
+              "inference_geo": "not_available"
+            },
+            "diagnostics": null
+          }
+        }
       }
     }
   ]

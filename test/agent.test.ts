@@ -30,9 +30,13 @@ describe('order support agent (offline replay)', () => {
       eta: '2026-08-14',
     });
 
+    // The ETA is asserted on the deterministic tool result above. The prose
+    // is the model's: a live re-record on 2026-10-07 wrote "August 14, 2026"
+    // where the scripted model wrote "2026-08-14", and the old literal check
+    // went red against a correct answer. Accept either form here.
     expect(result.text).toContain('A-1001');
     expect(result.text).toContain('DHL');
-    expect(result.text).toContain('2026-08-14');
+    expect(result.text).toMatch(/2026-08-14|August 14(?:th)?,? 2026|14(?:th)? August 2026/);
   });
 
   it('fails loudly when the prompt drifts from the recording', async () => {

@@ -26,6 +26,17 @@ export function cassetteModel(model: WrappableModel): LanguageModel {
     middleware: cassetteMiddleware({
       mode,
       cassetteDir: CASSETTE_DIR,
+      // tapedeck also records response headers. These identify the account
+      // or the request, have no replay value, and would otherwise be
+      // committed with the cassette. Redacted at record time.
+      redact: [
+        'anthropic-organization-id',
+        'anthropic-workspace-id',
+        /^anthropic-ratelimit-/,
+        'request-id',
+        'cf-ray',
+        'traceresponse',
+      ],
     }) as unknown as LanguageModelMiddleware,
   });
 }
