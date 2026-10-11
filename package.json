@@ -18,7 +18,7 @@
   "devDependencies": {
     "@ai-sdk/anthropic": "^4.0.63",
     "@nkwib/tapedeck": "0.4.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.6.4",
     "tsx": "^4.23.15",
     "typescript": "^5.6.0",
     "vitest": "^5.0.1"
