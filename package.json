@@ -12,15 +12,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "ai": "^7.0.114",
+    "ai": "^7.0.135",
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@ai-sdk/anthropic": "^4.0.63",
+    "@ai-sdk/anthropic": "^4.0.78",
     "@nkwib/tapedeck": "0.4.0",
     "@types/node": "^26.6.4",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.3"
   }
 }
